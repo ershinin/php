@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Авторизация</title>
+    <link rel="stylesheet" href="./css/auth.css">
+</head>
+<body>
+    <button id="cabinet">Личный кабинет</button>
+    <div id="modal-background">
+        <div id="modal">
+            <h2>Авторизация</h2>
+            <form id="auth" name="auth" novalidate>
+                <label>Введите логин: <input type="text" name="login"></label>
+                <label>Введите пароль: <input type="password" name="password"></label>
+                <span id="invalid" class="message">Не все поля заполнены!</span>
+                <span id="wrong" class="message">Неверный логин и/или пароль!</span>
+                <input type="submit" value="Войти">
+            </form>
+
+        </div>
+    </div>
+<script src="js/auth.js"></script>
+</body>
+</html>

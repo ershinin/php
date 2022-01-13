@@ -1,0 +1,30 @@
+#modal {
+    width: 400px;
+    height: 200px;
+    margin: auto;
+    background-color: white;
+}
+
+#auth > label {
+    display: block;
+    margin-top: 1rem;
+}
+
+#modal-background {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    display: none;
+    background-color: grey;
+}
+
+.active {
+    visibility: visible;
+}
+
+.message {
+    visibility: hidden;
+    color: red;
+}

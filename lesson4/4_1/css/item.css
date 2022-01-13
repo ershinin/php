@@ -1,0 +1,21 @@
+.item {
+    width: 600px;
+    background-color: grey;
+    border: #333333 solid 1px;
+}
+
+img {
+    width: 380px;
+    height: auto;
+    margin: auto;
+    object-fit: cover;
+}
+
+.item a {
+    text-decoration: none;
+    line-height: 1.5rem;
+    text-align: center;
+    padding: 5px;
+    background-color: #333333;
+    color: white;
+}
