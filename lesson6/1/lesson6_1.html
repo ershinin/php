@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Загрузка файлов</title>
+</head>
+<body>
+
+<form name="files" action="lesson6_1.php" method="post" enctype="multipart/form-data">
+    <label>
+        <span>Выберите один или несколько файлов в формате .txt (размером не более 10 кб)</span>
+        <input multiple name="text_files[]" accept="text/*" type="file">
+    </label>
+    <input type="submit" value="Отправить">
+</form>
+
+</body>
+</html>
