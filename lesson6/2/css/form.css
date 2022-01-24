@@ -1,0 +1,22 @@
+label {
+    display: block;
+}
+
+input {
+    display: block;
+}
+
+#invalid {
+    background-color: darksalmon;
+    color: red;
+    display: block;
+    line-height: 1.5rem;
+}
+
+.answer {
+    visibility: hidden;
+}
+
+form {
+    width: 250px;
+}
