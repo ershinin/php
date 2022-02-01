@@ -5,7 +5,8 @@ $commandList = require_once 'commands.php';
 if (isset($argv[1])) {
     if ($argv[1] === 'list') {
         foreach ($commandList as $key => $value) {
-            echo $key . ': ' . $value . PHP_EOL;
+            $command = getCommand($value);
+            echo $key . ': ' . $command->help() . PHP_EOL;
         }
     } elseif (in_array($argv[1], array_keys($commandList))) {
         $command = getCommand($commandList[$argv[1]]);
