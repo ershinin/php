@@ -1,29 +1,11 @@
 #!/usr/bin/env php
 <?php
-
+require_once 'Executor.php';
 $commandList = require_once 'commands.php';
-if (isset($argv[1])) {
-    if ($argv[1] === 'list') {
-        foreach ($commandList as $key => $value) {
-            $command = getCommand($value);
-            echo $key . ': ' . $command->help() . PHP_EOL;
-        }
-    } elseif (in_array($argv[1], array_keys($commandList))) {
-        $command = getCommand($commandList[$argv[1]]);
-        if (isset($argv[2]) && $argv[2] === 'help') {
-            echo $command->help();
-        } else {
-            echo 'Запускаем команду ' . $command->getName() . '...' . PHP_EOL;
-            $command->execute();
-        }
-    } else {
-        echo 'Команда ' . $argv[1] . ' не найдена';
-    }
+$commandExecutor = new Executor($commandList);
+if (count($argv) > 1) {
+    array_shift($argv);
+    $commandExecutor->executeCommand($argv);
+} else {
+    echo 'Для выполнения команды run нужны аргументы';
 }
-
-function getCommand($name) {
-    require_once '../' . $name . '.php';
-    return new $name;
-}
-
-
