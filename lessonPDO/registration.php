@@ -9,8 +9,11 @@ try {
     if (checkUser($post['login'])) {
         echo '<p>Пользователь с таким именем уже существует!</p>';
         echo '<a href="registration.html">Вернуться на страницу регистрации</a>';
-    } else {
-        if (addUser($post['login'], $post['password']))
+    } elseif (preg_match('/[a-zа-яё]/', $post['phone']) && filter_var($post['email'], FILTER_VALIDATE_EMAIL)) {
+        echo 'Проверьте корректность заполнения полей';
+    } else
+    {
+        if (addUser($post['login'], $post['email'], $post['phone'], $post['password']))
             echo 'Вы успешно зарегистрированы!';
         else echo 'Ошибка при регистрации. Попробуйте ещё раз';
     }
@@ -30,11 +33,13 @@ function checkUser($login){
     return $statement->fetch(PDO::FETCH_BOUND);
 }
 
-function addUser($login, $pwd){
+function addUser($login, $email, $phone, $pwd){
     $connection = DbConnection::getInstance()->getConnection();
-    $sql = "INSERT INTO auth_test(login, password) VALUE (:login, :pwd);";
+    $sql = "INSERT INTO auth_test(login, email, phone, password) VALUE (:login, :email, :phone, :pwd);";
     $params = [
         'login' => $login,
+        'email' => $email,
+        'phone' => $phone,
         'pwd' => $pwd
     ];
     $statement = $connection->prepare($sql);

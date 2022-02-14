@@ -7,8 +7,11 @@
 <body>
     <h3>Регистрация нового пользователя</h3>
     <form method="post" name="registration" action="registration.php">
-        <input type="text" name="login" placeholder="введите телефон, почту или логин" required>
-        <input type="password" name="password" placeholder="придумайте пароль" required>
+        <label>Введите номер телефона:<input type="text" name="phone"></label>
+        <label>Введите e-mail:<input type="text" name="email" ></label>
+        <label>Введите логин*:<input type="text" name="login" required></label>
+        <label>Придумайте пароль*:<input type="password" name="password" required></label>
+        <span>* поля, обязательные для заполнения</span>
         <input type="submit" value="Зарегистрироваться">
     </form>
 

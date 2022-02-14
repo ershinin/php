@@ -19,7 +19,7 @@ try {
 
 function signUp($login, $pwd){
     $connection = DbConnection::getInstance()->getConnection();
-    $sql = "SELECT * FROM auth_test WHERE login = :login AND password = :pwd;";
+    $sql = "SELECT * FROM auth_test WHERE login = :login OR email = :login OR phone = :login AND password = :pwd;";
     $params = [
         'login' => $login,
         'pwd' => $pwd
